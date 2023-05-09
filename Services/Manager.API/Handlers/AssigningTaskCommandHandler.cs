@@ -1,6 +1,6 @@
 ﻿using Manager.API.Commands;
-using Manager.API.Models;
-using Manager.API.Repositories.Interfaces;
+using PMTDataAccess.Models;
+using PMTDataAccess.Repositories.Interfaces;
 using Manager.API.Utilities;
 using MediatR;
 

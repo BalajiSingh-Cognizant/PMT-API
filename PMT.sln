@@ -7,6 +7,10 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Manager.API", "Services\Man
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Services", "Services", "{70C49551-06C5-4607-A9C5-907B8E2DA5DA}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Data", "Data", "{9F238779-5EEB-48E1-9021-F469338D00A5}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PMTDataAccess", "Data\PMTDataAccess\PMTDataAccess.csproj", "{5C319601-E54C-4E50-AE0A-99746F9B886A}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -17,12 +21,17 @@ Global
 		{3FD91755-59E6-4AB0-A325-CDB3C23EC784}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{3FD91755-59E6-4AB0-A325-CDB3C23EC784}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{3FD91755-59E6-4AB0-A325-CDB3C23EC784}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5C319601-E54C-4E50-AE0A-99746F9B886A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5C319601-E54C-4E50-AE0A-99746F9B886A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5C319601-E54C-4E50-AE0A-99746F9B886A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5C319601-E54C-4E50-AE0A-99746F9B886A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{3FD91755-59E6-4AB0-A325-CDB3C23EC784} = {70C49551-06C5-4607-A9C5-907B8E2DA5DA}
+		{5C319601-E54C-4E50-AE0A-99746F9B886A} = {9F238779-5EEB-48E1-9021-F469338D00A5}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {D4E55C6F-DAE8-4DB6-B58F-0AE364BB4CE9}

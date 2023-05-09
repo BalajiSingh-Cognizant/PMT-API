@@ -1,8 +1,8 @@
-﻿using Manager.API.Utilities;
+﻿using PMTDataAccess.Validations;
 using MongoDB.Bson.Serialization.Attributes;
 using System.ComponentModel.DataAnnotations;
 
-namespace Manager.API.Models
+namespace PMTDataAccess.Models
 {
     public class TaskMember
     {

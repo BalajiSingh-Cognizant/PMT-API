@@ -1,6 +1,6 @@
-﻿using Manager.API.Models;
+﻿using PMTDataAccess.Models;
 
-namespace Manager.API.Repositories.Interfaces
+namespace PMTDataAccess.Repositories.Interfaces
 {
     public interface IProjectRepository
     {

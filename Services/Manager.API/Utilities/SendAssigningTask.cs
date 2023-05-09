@@ -1,4 +1,4 @@
-﻿using Manager.API.Models;
+﻿using PMTDataAccess.Models;
 using Microsoft.Extensions.Options;
 using RabbitMQ.Client;
 using System.Text;

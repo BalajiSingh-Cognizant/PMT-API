@@ -1,7 +1,7 @@
-﻿using Manager.API.Models;
+﻿using PMTDataAccess.Models;
 using System.ComponentModel.DataAnnotations;
 
-namespace Manager.API.Utilities
+namespace PMTDataAccess.Validations
 {
     public class YearsOfExperienceValidation : ValidationAttribute
     {

@@ -1,7 +1,7 @@
-﻿using Manager.API.Models;
+﻿using PMTDataAccess.Models;
 using MongoDB.Driver;
 
-namespace Manager.API.Data
+namespace PMTDataAccess.Data
 {
     public interface IDbContext
     {

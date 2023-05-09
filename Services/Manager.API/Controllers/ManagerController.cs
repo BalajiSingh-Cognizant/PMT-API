@@ -1,5 +1,5 @@
 ﻿using Manager.API.Commands;
-using Manager.API.Models;
+using PMTDataAccess.Models;
 using Manager.API.Queries;
 using MediatR;
 using Microsoft.AspNetCore.Authorization;

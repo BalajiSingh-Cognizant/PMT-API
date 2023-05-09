@@ -1,7 +1,7 @@
 ﻿using MongoDB.Bson.Serialization.Attributes;
 using System.ComponentModel.DataAnnotations;
 
-namespace Manager.API.Models
+namespace PMTDataAccess.Models
 {
     public class ProjectTaskMember
     {

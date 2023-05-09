@@ -1,4 +1,4 @@
-﻿namespace Manager.API.Models
+﻿namespace PMTDataAccess.Models
 {
     public class RabbitMqConfiguration
     {

@@ -1,4 +1,4 @@
-﻿using Manager.API.Models;
+﻿using PMTDataAccess.Models;
 using MediatR;
 
 namespace Manager.API.Queries

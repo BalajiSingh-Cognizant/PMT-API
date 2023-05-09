@@ -1,9 +1,9 @@
-﻿using Manager.API.Data;
-using Manager.API.Models;
-using Manager.API.Repositories.Interfaces;
+﻿using PMTDataAccess.Data;
+using PMTDataAccess.Models;
+using PMTDataAccess.Repositories.Interfaces;
 using MongoDB.Driver;
 
-namespace Manager.API.Repositories
+namespace PMTDataAccess.Repositories
 {
     public class ProjectRepository : IProjectRepository
     {

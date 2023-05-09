@@ -1,13 +1,16 @@
-using Manager.API.Data;
-using Manager.API.Repositories.Interfaces;
-using Manager.API.Repositories;
-using Manager.API.Models;
+using PMTDataAccess.Data;
+using PMTDataAccess.Models;
 using Manager.API.Utilities;
+using PMTDataAccess.Repositories;
+using PMTDataAccess.Repositories.Interfaces;
+using Microsoft.Extensions.Options;
 
 var builder = WebApplication.CreateBuilder(args);
 
 ConfigurationManager configuration = builder.Configuration;
 
+builder.Services.Configure<MongoDBSettings>(configuration.GetSection("MongoDatabaseSettings"));
+builder.Services.AddSingleton<IMongoDBSettings>(provider=>provider.GetRequiredService<IOptions<MongoDBSettings>>().Value);
 builder.Services.Configure<RabbitMqConfiguration>(configuration.GetSection("RabbitMq"));
 builder.Services.AddScoped<ISendAssigningTask, SendAssigningTask>();
 

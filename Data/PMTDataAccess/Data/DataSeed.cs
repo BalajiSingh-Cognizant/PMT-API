@@ -1,8 +1,8 @@
-﻿using Manager.API.Models;
+﻿using PMTDataAccess.Models;
 using MongoDB.Driver;
 using static MongoDB.Bson.Serialization.Serializers.SerializerHelper;
 
-namespace Manager.API.Data
+namespace PMTDataAccess.Data
 {
     public class DataSeed
     {

@@ -1,6 +1,6 @@
-﻿using Manager.API.Models;
+﻿using PMTDataAccess.Models;
+using PMTDataAccess.Repositories.Interfaces;
 using Manager.API.Queries;
-using Manager.API.Repositories.Interfaces;
 using MediatR;
 
 namespace Manager.API.Handlers

@@ -1,17 +1,18 @@
-﻿using Manager.API.Models;
+﻿using PMTDataAccess.Models;
 using Microsoft.Extensions.Options;
 using MongoDB.Driver;
+using Microsoft.Extensions.Configuration;
 
-namespace Manager.API.Data
+namespace PMTDataAccess.Data
 {
     public class DbContext : IDbContext
     {
         private readonly IMongoDatabase _database = null;
-        public DbContext(IConfiguration configuration)
+        public DbContext(IOptions<MongoDBSettings> settings)
         {
-            var client = new MongoClient(configuration.GetValue<string>("MongoDatabaseSettings:Connection"));
+            var client = new MongoClient(settings.Value.Connection);
             if (client != null)
-                _database = client.GetDatabase(configuration.GetValue<string>("MongoDatabaseSettings:DatabaseName"));
+                _database = client.GetDatabase(settings.Value.Database);
             DataSeed.SeedData(_database.GetCollection<ProjectMember>("ProjectMembers"));
         }
 
