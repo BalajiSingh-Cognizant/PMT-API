@@ -1,23 +1,26 @@
+using MassTransit;
+using Member.API.EventBusConsumer;
+using Microsoft.Extensions.Options;
 using PMTDataAccess.Data;
 using PMTDataAccess.Models;
-using Manager.API.Utilities;
 using PMTDataAccess.Repositories;
 using PMTDataAccess.Repositories.Interfaces;
-using Microsoft.Extensions.Options;
-using MassTransit;
 
 var builder = WebApplication.CreateBuilder(args);
 
 ConfigurationManager configuration = builder.Configuration;
 
 builder.Services.Configure<MongoDBSettings>(configuration.GetSection("MongoDatabaseSettings"));
-builder.Services.AddSingleton<IMongoDBSettings>(provider=>provider.GetRequiredService<IOptions<MongoDBSettings>>().Value);
+builder.Services.AddSingleton<IMongoDBSettings>(provider => provider.GetRequiredService<IOptions<MongoDBSettings>>().Value);
 
-//builder.Services.Configure<RabbitMqConfiguration>(configuration.GetSection("RabbitMq"));
 builder.Services.AddMassTransit(config =>
 {
+    config.AddConsumer<AssignTaskConsumer>();
     config.UsingRabbitMq((ctx, cfg) => {
         cfg.Host(configuration.GetValue<string>("RabbitMq:HostAddress"));
+        cfg.ReceiveEndpoint(EventBus.Messages.Common.Constants.TaskAssignmentQueue, c => { 
+            c.ConfigureConsumer<AssignTaskConsumer>(ctx);
+        });
     });
 });
 
@@ -34,12 +37,10 @@ builder.Services.AddCors(o => o.AddPolicy("Cors", builder =>
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
-
-builder.Services.AddScoped<ISendAssigningTask, SendAssigningTask>();
-builder.Services.AddTransient<IDbContext, DbContext>();
-builder.Services.AddTransient<IProjectRepository, ProjectRepository>();
-builder.Services.AddTransient<ITaskRepository, TaskRepository>();
 builder.Services.AddControllers();
+
+builder.Services.AddTransient<IDbContext, DbContext>();
+builder.Services.AddTransient<IProjectTaskRepository, ProjectTaskRepository>();
 
 var app = builder.Build();
 
@@ -52,4 +53,3 @@ if (app.Environment.IsDevelopment())
 app.MapControllers();
 
 app.Run();
-

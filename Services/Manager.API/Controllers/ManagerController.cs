@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using System.Data;
+using System.Net;
 
 namespace Manager.API.Controllers
 {
@@ -84,6 +85,8 @@ namespace Manager.API.Controllers
 
         [HttpPost]
         [Route("AssignTask")]
+        [ProducesResponseType((int)HttpStatusCode.Accepted)]
+        [ProducesResponseType((int)HttpStatusCode.BadRequest)]
         public async Task<IActionResult> AssignTask(TaskMember task)
         {
             try
@@ -97,6 +100,8 @@ namespace Manager.API.Controllers
                 {
                     return BadRequest();
                 }
+
+
 
                 return CreatedAtAction($"/member/{task.MemberId}", projectMember);
             }

@@ -3,6 +3,8 @@ using PMTDataAccess.Models;
 using PMTDataAccess.Repositories.Interfaces;
 using Manager.API.Utilities;
 using MediatR;
+using MassTransit;
+using EventBus.Messages.Events;
 
 namespace Manager.API.Handlers
 {
@@ -11,12 +13,17 @@ namespace Manager.API.Handlers
         private readonly ITaskRepository _taskRepository;
         private readonly ISendAssigningTask _sendAssigningTask;
         private readonly IProjectRepository _projectRepository;
+        private readonly IPublishEndpoint _publishEndpoint;
 
-        public AssigningTaskCommandHandler(ITaskRepository taskRepository, IProjectRepository projectRepository, ISendAssigningTask sendAssigningTask)
+        public AssigningTaskCommandHandler(ITaskRepository taskRepository, 
+            IProjectRepository projectRepository, 
+            ISendAssigningTask sendAssigningTask,
+            IPublishEndpoint publishEndpoint)
         {
-            _taskRepository = taskRepository;
+            this._taskRepository = taskRepository;
             this._sendAssigningTask = sendAssigningTask;
             this._projectRepository = projectRepository;
+            this._publishEndpoint = publishEndpoint;
         }
 
         public Task<TaskMember> Handle(AssigningTaskCommand request, CancellationToken cancellationToken)
@@ -26,7 +33,7 @@ namespace Manager.API.Handlers
                 _taskRepository.AddTaskMember(request.TaskMemberDetails);
                 var projectMember = this._projectRepository.GetProjectMember(request.TaskMemberDetails.MemberId);
 
-                ProjectTaskMember projectTaskMember = new ProjectTaskMember
+                AsssignTaskEvent projectTaskMember = new AsssignTaskEvent
                 {
                     MemberId = projectMember.MemberId,
                     MemberName = projectMember.Name,
@@ -41,7 +48,8 @@ namespace Manager.API.Handlers
 
                 if (_sendAssigningTask != null)
                 {
-                    _sendAssigningTask.SendTask(projectTaskMember);
+                    //_sendAssigningTask.SendTask(projectTaskMember);
+                    _publishEndpoint.Publish(projectTaskMember);
                 }
                 return request.TaskMemberDetails;
             });
