@@ -2,10 +2,7 @@
 using PMTDataAccess.Models;
 using Manager.API.Queries;
 using MediatR;
-using Microsoft.AspNetCore.Authorization;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
-using System.Data;
 using System.Net;
 
 namespace Manager.API.Controllers
@@ -21,8 +18,8 @@ namespace Manager.API.Controllers
         }
 
         [HttpGet]
-        [Route("GetMember")]
-        public async Task<IActionResult> GetMember()
+        [Route("GetMembers")]
+        public async Task<IActionResult> GetMembers()
         {
             try
             {
