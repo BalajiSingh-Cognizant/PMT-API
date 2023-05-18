@@ -4,6 +4,18 @@
   },
   "Routes": [
     {
+      "DownstreamPathTemplate": "/api/auth",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 5112
+        }
+      ],
+      "UpstreamPathTemplate": "/auth",
+      "UpstreamHttpMethod": [ "Post" ]
+    },
+    {
       "DownstreamPathTemplate": "/api/Manager/AddMember",
       "DownstreamScheme": "http",
       "DownstreamHostAndPorts": [
@@ -13,7 +25,10 @@
         }
       ],
       "UpstreamPathTemplate": "/Manager/AddMember",
-      "UpstreamHttpMethod": [ "POST" ]
+      "UpstreamHttpMethod": [ "POST" ],
+      "AuthenticationOptions": {
+        "AuthenticationProviderKey": "Bearer"
+      }
     },
     {
       "DownstreamPathTemplate": "/api/Manager/GetMembers",
@@ -25,7 +40,10 @@
         }
       ],
       "UpstreamPathTemplate": "/Manager/GetMembers",
-      "UpstreamHttpMethod": [ "GET" ]
+      "UpstreamHttpMethod": [ "GET" ],
+      "AuthenticationOptions": {
+        "AuthenticationProviderKey": "Bearer"
+      }
     },
     {
       "DownstreamPathTemplate": "/api/Member/list/{id}",
