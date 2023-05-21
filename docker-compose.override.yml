@@ -1,0 +1,24 @@
+version: '3.4'
+
+services:
+  pmtdb:
+    container_name: pmtmongo
+    restart: always
+    ports:
+      - "27017:27017"
+    volumes:
+      - mongo_data:/data/db
+  
+  rabbitmq:
+    container_name: pmtrabbitmq
+    restart: always
+    ports:
+      - "5672:5672"
+      - "15672:15672"
+
+  ocelotapigateway:
+    container_name: pmtocelotgateway
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+    ports:
+      - "8010:80"

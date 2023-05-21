@@ -8,8 +8,8 @@ namespace Authentication.API
 {
     public class JwtTokenService
     {
-        private readonly List<User> _users = new List<User>() 
-        { 
+        private readonly List<User> _users = new List<User>()
+        {
             new User()
             {
                 Username = "admin",
@@ -46,11 +46,11 @@ namespace Authentication.API
             var expirationTimeStamp = DateTime.Now.AddMinutes(5);
 
             var claims = new List<Claim>
-        {
-            new Claim(JwtRegisteredClaimNames.Name, user.Username),
-            new Claim("role", user.Role),
-            new Claim("scope", string.Join(" ", user.Scopes))
-        };
+            {
+                new Claim(JwtRegisteredClaimNames.Name, user.Username),
+                new Claim("role", user.Role),
+                new Claim("scope", string.Join(" ", user.Scopes))
+            };
 
             var tokenOptions = new JwtSecurityToken(
                 issuer: "https://localhost:5002",
