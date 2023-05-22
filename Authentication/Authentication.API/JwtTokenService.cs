@@ -1,4 +1,5 @@
 ﻿using Authentication.API.Models;
+using JwtExtensions;
 using Microsoft.IdentityModel.Tokens;
 using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
@@ -41,7 +42,7 @@ namespace Authentication.API
                 return null;
             }
 
-            var secretKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(JwtExtensions.SecurityKey));
+            var secretKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(JwtAuthExtension.SecurityKey));
             var signingCredentials = new SigningCredentials(secretKey, SecurityAlgorithms.HmacSha256);
             var expirationTimeStamp = DateTime.Now.AddMinutes(5);
 

@@ -12,3 +12,6 @@ services:
     build:
       context: .
       dockerfile: ApiGateways/OcelotApiGateway/Dockerfile
+
+volumes:
+  mongo_data:
