@@ -23,7 +23,7 @@ namespace Manager.API.Handlers
                 {
                     if (projectMembers[i].EndDate > DateTime.Now)
                     {
-                        projectMembers[i].AllocationPercentage = 100;
+                        projectMembers[i].AllocationPercentage = request.NewAllocationPercentage;
                         this._projectRepository.UpdateProjectMember(projectMembers[i].MemberId, projectMembers[i]);
                     }
                     else

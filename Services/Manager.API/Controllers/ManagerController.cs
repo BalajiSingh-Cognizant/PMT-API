@@ -60,12 +60,12 @@ namespace Manager.API.Controllers
         }
 
         [HttpPut]
-        [Route("UpdateAllocation")]
-        public async Task<IActionResult> UpdateAllocation()
+        [Route("UpdateAllocation/{percentage}")]
+        public async Task<IActionResult> UpdateAllocation(string percentage)
         {
             try
             {
-                var projectMembers = await _mediator.Send(new UpdateAllocationCommand());
+                var projectMembers = await _mediator.Send(new UpdateAllocationCommand(Int32.Parse(percentage)));
 
                 if (projectMembers == null)
                 {

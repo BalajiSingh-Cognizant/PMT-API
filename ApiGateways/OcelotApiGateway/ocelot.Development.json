@@ -46,7 +46,7 @@
       }
     },
     {
-      "DownstreamPathTemplate": "/api/Member/list/{id}",
+      "DownstreamPathTemplate": "/api/Member/list/{id}/{taskName}",
       "DownstreamScheme": "http",
       "DownstreamHostAndPorts": [
         {
@@ -54,7 +54,7 @@
           "Port": "80"
         }
       ],
-      "UpstreamPathTemplate": "/Member/list/{id}",
+      "UpstreamPathTemplate": "/Member/list/{id}/{taskName}",
       "UpstreamHttpMethod": [ "Get" ]
     },
     {
@@ -73,7 +73,7 @@
       }
     },
     {
-      "DownstreamPathTemplate": "/api/Manager/UpdateAllocation",
+      "DownstreamPathTemplate": "/api/Manager/UpdateAllocation/{percentage}",
       "DownstreamScheme": "http",
       "DownstreamHostAndPorts": [
         {
@@ -81,7 +81,7 @@
           "Port": "80"
         }
       ],
-      "UpstreamPathTemplate": "/Manager/UpdateAllocation",
+      "UpstreamPathTemplate": "/Manager/UpdateAllocation/{percentage}",
       "UpstreamHttpMethod": [ "PUT" ],
       "AuthenticationOptions": {
         "AuthenticationProviderKey": "Bearer"
