@@ -17,12 +17,12 @@ namespace Member.API.Controllers
         }
 
         [HttpGet]
-        [Route("list/{id}")]
-        public async Task<IActionResult> GetTaskAsync(string id)
+        [Route("list/{id}/{taskName}")]
+        public async Task<IActionResult> GetTaskAsync(string id, string taskName)
         {
             try
             {
-                var projectTaskMember = await _mediator.Send(new GetProjectTaskMemberQuery(id));
+                var projectTaskMember = await _mediator.Send(new GetProjectTaskMemberQuery(id, taskName));
 
                 if (projectTaskMember == null)
                 {

@@ -19,9 +19,9 @@ namespace PMTDataAccess.Repositories
             return projectTaskMember;
         }
 
-        public ProjectTaskMember ShowProjectTaskMember(string id)
+        public ProjectTaskMember ShowProjectTaskMember(string id, string taskName)
         {
-            return _ProjectTaskMemberCollection.Find(tm => tm.MemberId == id).FirstOrDefault();
+            return _ProjectTaskMemberCollection.Find(tm => tm.MemberId == id && tm.TaskName == taskName).FirstOrDefault();
         }
     }
 }

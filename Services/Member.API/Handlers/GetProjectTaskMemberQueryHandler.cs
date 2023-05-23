@@ -18,7 +18,7 @@ namespace Member.API.Handlers
         {
             return Task.Run(() =>
             {
-                var projectMembers = this._projectTaskRepository.ShowProjectTaskMember(request.MemberId);
+                var projectMembers = this._projectTaskRepository.ShowProjectTaskMember(request.MemberId, request.TaskName);
                 return projectMembers;
             });
 
