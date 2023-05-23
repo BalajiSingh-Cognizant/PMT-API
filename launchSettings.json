@@ -4,7 +4,10 @@
       "commandName": "DockerCompose",
       "commandVersion": "1.0",
       "serviceActions": {
-        "ocelotapigateway": "StartDebugging"
+        "ocelotapigateway": "StartDebugging",
+        "authentication.api": "StartDebugging",
+        "manager.api": "StartDebugging",
+        "member.api": "StartDebugging"
       }
     }
   }

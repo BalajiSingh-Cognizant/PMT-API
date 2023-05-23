@@ -18,7 +18,47 @@ services:
 
   ocelotapigateway:
     container_name: pmtocelotgateway
+    depends_on:
+      - authentication.api
+      - manager.api
+      - member.api
     environment:
       - ASPNETCORE_ENVIRONMENT=Development
     ports:
       - "8010:80"
+
+  authentication.api:
+    container_name: authentication.api
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+    ports:
+      - "8000:80"
+
+  manager.api:
+    container_name: manager.api
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+      - RabbitMq__HostAddress=amqp://guest:guest@rabbitmq:5672
+      - RabbitMq__QueueName=AssigningTasksQueue
+      - MongoDatabaseSettings__Connection=mongodb://pmtdb:27017
+      - MongoDatabaseSettings__Database=pmtdb
+    depends_on:
+      - pmtdb
+      - rabbitmq
+    ports:
+      - "8001:80"
+
+  member.api:
+    container_name: member.api
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+      - RabbitMq__HostAddress=amqp://guest:guest@rabbitmq:5672
+      - RabbitMq__QueueName=AssigningTasksQueue
+      - MongoDatabaseSettings__Connection=mongodb://pmtdb:27017
+      - MongoDatabaseSettings__Database=pmtdb
+    depends_on:
+      - pmtdb
+      - rabbitmq
+    ports:
+      - "8002:80"
+
