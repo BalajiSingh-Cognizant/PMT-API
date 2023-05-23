@@ -49,7 +49,8 @@ namespace Manager.API.Controllers
                     return BadRequest();
                 }
 
-                return CreatedAtAction($"/member/{pm.MemberId}", projectMember);
+                //return CreatedAtAction($"api/member/{pm.MemberId}", projectMember);
+                return Ok(projectMember);
             }
             catch (Exception ex)
             {
@@ -59,7 +60,7 @@ namespace Manager.API.Controllers
         }
 
         [HttpPut]
-        [Route("Update")]
+        [Route("UpdateAllocation")]
         public async Task<IActionResult> UpdateAllocation()
         {
             try
@@ -97,10 +98,8 @@ namespace Manager.API.Controllers
                 {
                     return BadRequest();
                 }
-
-
-
-                return CreatedAtAction($"/member/{task.MemberId}", projectMember);
+                //return CreatedAtAction($"/member/{task.MemberId}", projectMember);
+                return Ok(projectMember);
             }
             catch (Exception ex)
             {

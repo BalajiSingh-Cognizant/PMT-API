@@ -1,10 +1,11 @@
-﻿using Microsoft.AspNetCore.Authentication.JwtBearer;
+﻿using Microsoft.Extensions.DependencyInjection;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.IdentityModel.Tokens;
 using System.Text;
 
-namespace Authentication.API
+namespace JwtExtensions
 {
-    public static class JwtExtensions
+    public static class JwtAuthExtension
     {
         public const string SecurityKey = "mysecretJWTKey@399584";
 

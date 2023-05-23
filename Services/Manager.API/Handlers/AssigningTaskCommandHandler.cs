@@ -48,7 +48,6 @@ namespace Manager.API.Handlers
 
                 if (_sendAssigningTask != null)
                 {
-                    //_sendAssigningTask.SendTask(projectTaskMember);
                     _publishEndpoint.Publish(projectTaskMember);
                 }
                 return request.TaskMemberDetails;

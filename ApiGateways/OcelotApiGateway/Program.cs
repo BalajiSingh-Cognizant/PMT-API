@@ -1,6 +1,6 @@
 using Ocelot.DependencyInjection;
 using Ocelot.Middleware;
-using Authentication.API;
+using JwtExtensions;
 
 var builder = WebApplication.CreateBuilder(args);
 

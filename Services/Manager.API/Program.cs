@@ -8,6 +8,8 @@ using MassTransit;
 
 var builder = WebApplication.CreateBuilder(args);
 
+//ConfigurationProvider configurationProvider = new ConfigurationProvider();
+
 ConfigurationManager configuration = builder.Configuration;
 
 builder.Services.Configure<MongoDBSettings>(configuration.GetSection("MongoDatabaseSettings"));

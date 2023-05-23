@@ -1,0 +1,38 @@
+version: '3.4'
+
+services:
+  pmtdb:
+    image: mongo
+
+  rabbitmq:
+    image: rabbitmq:3-management-alpine
+
+  ocelotapigateway:
+    image: ${DOCKER_REGISTRY-}ocelotapigateway
+    build:
+      context: .
+      dockerfile: ApiGateways/OcelotApiGateway/Dockerfile
+
+  authentication.api:
+    image: ${DOCKER_REGISTRY-}authenticationapi
+    build:
+      context: .
+      dockerfile: Authentication/Authentication.API/Dockerfile
+
+  manager.api:
+    image: ${DOCKER_REGISTRY-}managerapi
+    build:
+      context: .
+      dockerfile: Services/Manager.API/Dockerfile
+
+  member.api:
+    image: ${DOCKER_REGISTRY-}memberapi
+    build:
+      context: .
+      dockerfile: Services/Member.API/Dockerfile
+
+volumes:
+  mongo_data:
+
+
+

@@ -19,11 +19,15 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Member.API", "Services\Memb
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "ApiGateways", "ApiGateways", "{74A04E2E-A2E3-48FA-838B-4B03073784B1}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OcelotApiGateway", "ApiGateways\OcelotApiGateway\OcelotApiGateway.csproj", "{7923EF9C-ED1C-4E11-B98E-57F1DA34E58B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "OcelotApiGateway", "ApiGateways\OcelotApiGateway\OcelotApiGateway.csproj", "{7923EF9C-ED1C-4E11-B98E-57F1DA34E58B}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Authentication", "Authentication", "{9F42C3E4-C966-4C08-9749-35BBE308BD3E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Authentication.API", "Authentication\Authentication.API\Authentication.API.csproj", "{2820C88F-22AD-4281-B9C3-C8A65861C1CA}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Authentication.API", "Authentication\Authentication.API\Authentication.API.csproj", "{2820C88F-22AD-4281-B9C3-C8A65861C1CA}"
+EndProject
+Project("{E53339B2-1760-4266-BCC7-CA923CBCF16C}") = "docker-compose", "docker-compose.dcproj", "{0410AFE2-B410-43E6-8E07-B7609B4D37F8}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "JwtExtensions", "Utilities\JwtExtensions\JwtExtensions.csproj", "{3013D144-E277-4715-A1D7-3D4B7431BBAC}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -55,6 +59,14 @@ Global
 		{2820C88F-22AD-4281-B9C3-C8A65861C1CA}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{2820C88F-22AD-4281-B9C3-C8A65861C1CA}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{2820C88F-22AD-4281-B9C3-C8A65861C1CA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0410AFE2-B410-43E6-8E07-B7609B4D37F8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0410AFE2-B410-43E6-8E07-B7609B4D37F8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0410AFE2-B410-43E6-8E07-B7609B4D37F8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0410AFE2-B410-43E6-8E07-B7609B4D37F8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3013D144-E277-4715-A1D7-3D4B7431BBAC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3013D144-E277-4715-A1D7-3D4B7431BBAC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3013D144-E277-4715-A1D7-3D4B7431BBAC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3013D144-E277-4715-A1D7-3D4B7431BBAC}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -66,6 +78,7 @@ Global
 		{E2628E98-99AF-493B-B5D9-7541646B6768} = {70C49551-06C5-4607-A9C5-907B8E2DA5DA}
 		{7923EF9C-ED1C-4E11-B98E-57F1DA34E58B} = {74A04E2E-A2E3-48FA-838B-4B03073784B1}
 		{2820C88F-22AD-4281-B9C3-C8A65861C1CA} = {9F42C3E4-C966-4C08-9749-35BBE308BD3E}
+		{3013D144-E277-4715-A1D7-3D4B7431BBAC} = {5D22B583-7BC7-4B7A-8F1C-B982E23A8CCC}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {D4E55C6F-DAE8-4DB6-B58F-0AE364BB4CE9}
