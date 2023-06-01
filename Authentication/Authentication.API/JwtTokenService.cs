@@ -13,23 +13,27 @@ namespace Authentication.API
         {
             new User()
             {
-                Username = "admin",
-                Password = "aDm1n",
-                Role = "Administrator",
-                Scopes = new[]
-                {
-                    "manager.read"
-                }
+                Username = "399584",
+                Password = "mAn@ger",
+                Role = "Manager"
             },
             new User()
             {
-                Username = "user01",
-                Password = "u$3r01",
-                Role = "User",
-                Scopes = new[]
-                {
-                    "manager.read"
-                }
+                Username = "466321",
+                Password = "home21",
+                Role = "Member"
+            },
+            new User()
+            {
+                Username = "manager",
+                Password = "manager",
+                Role = "Manager"
+            },
+            new User()
+            {
+                Username = "user",
+                Password = "user",
+                Role = "Member"
             }
         };
 
@@ -49,12 +53,10 @@ namespace Authentication.API
             var claims = new List<Claim>
             {
                 new Claim(JwtRegisteredClaimNames.Name, user.Username),
-                new Claim("role", user.Role),
-                new Claim("scope", string.Join(" ", user.Scopes))
+                new Claim("Role", user.Role),
             };
 
             var tokenOptions = new JwtSecurityToken(
-                issuer: "https://localhost:5002",
                 claims: claims,
                 expires: expirationTimeStamp,
                 signingCredentials: signingCredentials
